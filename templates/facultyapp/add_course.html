@@ -1,0 +1,24 @@
+{% extends 'Navbar/facultyNavbar.html' %}
+{% load static %}
+<html lang="en">
+{% block body %}
+    <div class="container mt-5">
+        <h2>Add Course for Student</h2>
+        <form method="post" action="{% url 'facultyapp:add_course' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_student" class="form-label">Select Student</label>
+                {{ form.Student }}
+            </div>
+            <div class="mb-3">
+                <label for="id_course" class="form-label">Select Course</label>
+                {{ form.course }}
+            </div>
+            <div class="mb-3">
+                <label for="id_section" class="form-label">Select Section</label>
+                {{ form.section }}
+            </div>
+            <button type="submit" class="btn btn-primary">Add Course</button>
+        </form>
+    </div>
+{% endblock %}

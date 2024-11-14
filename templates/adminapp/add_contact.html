@@ -1,0 +1,27 @@
+{% extends 'Navbar/ProjectNavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Contact</title>
+</head>
+<body>
+{% block body %}
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <br><br>
+            <h1>Add Contact</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="email" name="send_email" placeholder="Enter email to send contact details (optional)">
+                <button class="btn btn-primary" type="submit">Save</button>
+            </form>
+            <a href="{% url 'contact_list' %}">Back to List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
